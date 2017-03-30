@@ -21,8 +21,7 @@
     var textButton = document.forms[0].elements[0];
      if (textButton.value == 'Отключить звук') {
       textButton.value = 'Включить звук' ;  
-    }
-
+     }
     else textButton.value = 'Отключить звук' ;
   }
 
