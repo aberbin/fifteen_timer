@@ -2,6 +2,7 @@
   var table = document.getElementById('table');
   var h1 = document.getElementsByTagName('h1')[0];
   var startS = 1;
+  var mute = 1;
 
   HTMLAudioElement.prototype.stop = function() {
     this.pause();
@@ -10,7 +11,20 @@
 
   window.onload = addClass();
 
+  function muteSound() {
+    
+    if (mute == 1) {
+      mute = 2;
+    }
+    else mute = 1;
 
+    var textButton = document.forms[0].elements[0];
+     if (textButton.value == 'Отключить звук') {
+      textButton.value = 'Включить звук' ;  
+    }
+
+    else textButton.value = 'Отключить звук' ;
+  }
 
   function addClass() {
     //***********RANDOM*********
@@ -162,9 +176,10 @@ function move(event) {
   };
  
   function swap(Empty) {
-
+    if (mute == 1) {
     var audio = document.getElementById('audio');
     audio.play();
+  }
     var step = document.getElementById('step');
     step.innerHTML = +step.innerHTML + 1;
 
